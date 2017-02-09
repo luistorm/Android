@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:minHeight="?attr/listPreferredItemHeight"
+    >
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/i1"
+        android:id="@+id/imageView" />
+
+    <TextView
+        android:text="Nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvName"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageView"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:textColor="#34A853" />
+
+    <TextView
+        android:text="Numero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNumero"
+        android:textSize="10sp"
+        android:layout_below="@+id/tvName"
+        android:layout_toEndOf="@+id/imageView"
+        android:textColor="#34A853" />
+</RelativeLayout>
