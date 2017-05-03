@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="luistorm.gameshop.Login"
+    android:background="#E2E8CA">
+
+    <TextView
+        android:text="Game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:id="@+id/textView2"
+        android:textColor="#8EBA5F"
+        android:textStyle="normal|bold"
+        android:textSize="36sp" />
+
+    <TextView
+        android:text="Shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textColor="#528F47"
+        android:textStyle="normal|bold"
+        android:textSize="36sp"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="-15sp"
+        android:layout_marginLeft="10sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130sp"
+        android:id="@+id/editText2"
+        android:textColorLink="#528F47"
+        android:textColor="#528F47"
+        android:hint="Usuario"
+        android:textColorHint="#528F47"
+        android:paddingBottom="10sp"
+        android:textColorHighlight="#528F47" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="54dp"
+        android:id="@+id/editText"
+        android:textColorLink="#528F47"
+        android:textColor="#528F47"
+        android:hint="Contraseña"
+        android:textColorHint="#528F47"
+        android:paddingBottom="10sp"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:textColorHighlight="#528F47" />
+
+    <Button
+        android:text="INGRESAR"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/button"
+        android:background="#528F47"
+        android:textSize="14sp"
+        android:textColor="#E2E8CA" />
+</RelativeLayout>
