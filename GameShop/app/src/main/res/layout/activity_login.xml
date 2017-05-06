@@ -66,7 +66,8 @@
         android:paddingBottom="10sp"
         android:layout_below="@+id/editText2"
         android:layout_alignStart="@+id/editText2"
-        android:textColorHighlight="#528F47" />
+        android:textColorHighlight="#528F47"
+        android:password="true" />
 
     <Button
         android:text="INGRESAR"
