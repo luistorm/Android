@@ -1,5 +1,8 @@
 package luistorm.gameshop;
 
+import android.app.DownloadManager;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,16 +44,39 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (b.getId() == view.getId()) {
-            String url = "http://192.168.0.107/GameShop/controladores/controlador_usuario.php?"
+            String url = Utilidades.IP+"/GameShop/controladores/controlador_usuario.php?"
                     +"accion=ingresar"+"&user="
                     +eT2.getText()+"&pass="+eT.getText();//URL. PD: cambiar IP a la de mi pc
             //Se crea un objeto de strignRequest para recibir la informacion del servidor
+            final Context contexto = this;
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {//Evento de la respuesta del servidor
-                            Toast toast = Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG);
-                            toast.show();
+                            if (response.compareTo("usuario correcto") == 0) {
+                                String url2 = Utilidades.IP+"/GameShop/controladores/controlador_juego.php?accion=listarJuegos";
+                                StringRequest stringRequest2 = new StringRequest(Request.Method.GET, url2,
+                                        new Response.Listener<String>(){
+                                            @Override
+                                            public void onResponse(String response){
+                                                Utilidades.gameList = response;
+                                                Toast.makeText(contexto,"Bienvenido(a) "+eT2.getText()+"!",Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(contexto,ListaJuegos.class);
+                                                startActivity(intent);
+                                            }
+                                        },
+                                        new Response.ErrorListener() {
+                                            @Override
+                                            public void onErrorResponse(VolleyError error) {//Evento de los errores
+                                                Toast toast = Toast.makeText(getApplicationContext(), "Algo va mal con la conexion\n" + error.toString(), Toast.LENGTH_LONG);
+                                                toast.show();
+                                            }
+                                        });
+                                requestQueue.add(stringRequest2);
+                            }
+                            else {
+                                Toast.makeText(contexto,"Usuario o Contraseña Incorrectos",Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }, new Response.ErrorListener() {
                 @Override
